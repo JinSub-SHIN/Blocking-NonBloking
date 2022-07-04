@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 function Bloking() {
   const [status, setStatus] = useState("출근");
 
-  // componentDidupdate......
+  // componentDidMount  
+  // componentDidupdate
+  // componentWillUnmount
+  // 합체본..
   useEffect(() => {
     // 최초실행..
     console.log("component Mount...", status);
@@ -14,9 +17,11 @@ function Bloking() {
         console.log("call something....")
       }
     };
-  });  
-
-  const statusChange = () => {
+  }); 
+  
+  // useState 는 비동기로 작업하기 때문에 변경 후에 작업 처리 불가..
+  // 왜? 여러번 불필요한 렌더링 방지
+  const Bloking = () => {
     if (status === "출근") {
       console.log("사장 출근..");
       console.log(status);
@@ -24,7 +29,7 @@ function Bloking() {
       // 비동기로 동작..
       setStatus("퇴근");
       console.log("사장 퇴근..");
-      console.log(status);
+      console.log(status); // 출근
     } else {
       setStatus("출근");
     }
@@ -45,18 +50,19 @@ function Bloking() {
   };
 
   const checkBoss = () => {
-    console.log("일하고 있는지 검사...")
+    console.log("사장 : 직원 일하고 있는지 검사...")
   };
 
   const working = () => {
     for (let i = 1; i < 9; i++) {
-      console.log("일" + i + "시간째 하는중......");
+      console.log("직원 : 일" + i + "시간째 하는중......");
     }
   };
 
+  // generator * 수식어 .. strict mode 에서 yield 가 예약어이기 때문...
   function* working2() {
     for (let i = 1; i < 9; i++) {
-      console.log("일" + i + "시간째 하는중......");
+      console.log("직원 : 일" + i + "시간째 하는중......");
       yield;
     }
     return;
@@ -65,7 +71,7 @@ function Bloking() {
   return (
     <div style={{ padding: 70 }}>
       <h1>Bloking-UnBloking Test</h1>
-      <button onClick={() => statusChange()}>Bloking Test</button>
+      <button onClick={() => Bloking()}>Bloking Test</button>
       <button onClick={() => unBloking()}>unBloking Test</button>
       <p> {status} </p>
     </div>
