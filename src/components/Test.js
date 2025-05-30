@@ -4,10 +4,6 @@ function Bloking() {
   const [status, setStatus] = useState("주말");
   const [count, setCount] = useState(0);
 
-  // componentDidMount
-  // componentDidupdate
-  // componentWillUnmount
-  // 합체본..
   useEffect(() => {
     // 최초실행..
     console.log("component Mount...", status);
@@ -43,7 +39,7 @@ function Bloking() {
         setCount(0);
       }
     } else {
-      alert("직원이 출근 전 입니다.")
+      alert("직원이 출근 전 입니다.");
     }
   };
 
@@ -63,15 +59,15 @@ function Bloking() {
         setCount(0);
       }
     } else {
-      alert("직원이 출근 전 입니다.")
+      alert("직원이 출근 전 입니다.");
     }
   };
 
   const check = () => {
-    if(status === "퇴근") {
+    if (status === "퇴근") {
       setStatus("출근");
     }
-  }
+  };
 
   const checkBoss = () => {
     console.log("사장 : 직원 일하고 있는지 검사...");
@@ -95,9 +91,15 @@ function Bloking() {
   return (
     <div style={{ padding: 70 }}>
       <h1>Bloking-UnBloking Test</h1>
-      <button style={{marginRight : 10}} onClick={() => check()}>출근도장</button>
-      <button style={{marginRight : 10}} onClick={() => Bloking()}>블로킹</button>
-      <button style={{marginRight : 10}} onClick={() => unBloking()}>언블로킹</button>
+      <button style={{ marginRight: 10 }} onClick={() => check()}>
+        출근도장
+      </button>
+      <button style={{ marginRight: 10 }} onClick={() => Bloking()}>
+        블로킹
+      </button>
+      <button style={{ marginRight: 10 }} onClick={() => unBloking()}>
+        언블로킹
+      </button>
       <p> {status} </p>
       <p> {count} </p>
     </div>

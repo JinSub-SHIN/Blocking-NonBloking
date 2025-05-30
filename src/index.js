@@ -1,14 +1,14 @@
 import React from "react";
-import {createRoot} from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import Router from './Router/router';
+import Router from "./Router/router";
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-    <React.StrictMode>
+  <React.StrictMode>
     <Router />
   </React.StrictMode>
 );
